@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Rede Social</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js  "> </script> 
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="loading-overlay"> 
+        <div class="loading-spinner"> 
+  
+        </div> 
+        <div class="loading-text"> 
+            Carregando...
+        </div> 
+    </div> 
+    <div class="content">
+    <div class="container">
+        <!-- Seção contendo nome do Usuário e Botão de edição -->
+        <header>
+            <div class="profile-header">
+                <input type="file" id="upload-profile-pic" accept="image/*" style="display:none">
+                <img src="images/profile.png" alt="Foto de Perfil" class="profile-pic" id="profile-pic">
+                <h1 class="profile-name">Nome do Usuário</h1>
+                <button id="edit-profile-button" class="btn btn-primary">Editar Perfil</button>
+            </div>
+        </header>
+        <!-- Seção Sobre mim do perfil -->
+        <main>
+            <section id="about-me">
+                <h2>Sobre mim</h2>
+                <ul>
+                    <li><strong>Profissão:</strong> Desenvolvedor de Software</li>
+                    <li><strong>Mora em:</strong> São Paulo, Brasil</li>
+                    <li><strong>Status de relacionamento:</strong> Solteiro</li>
+                    <li><strong>Aniversário:</strong> 1 de Janeiro de 1990</li>
+                    <li><strong>Biografia:</strong> Esta é a minha biografia. Algo interessante sobre mim.</li>
+                </ul>
+            </section>
+
+            <section id="timeline">
+                <h2>Postagens</h2>
+                <div class="post-form">
+                    <textarea id="post-content" placeholder="Escreva algo..."></textarea>
+                    <button id="add-post-button" class="btn btn-primary">Adicionar Post</button>
+                </div>
+                <div id="posts-container"></div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Modal para edição do perfil -->
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            
+            <span class="close">&times;</span>
+            <h2>Editar Perfil</h2>
+            <label for="edit-username">Nome do Usuário:</label>
+            <input type="text" class="form-control" id="edit-username" value="Nome do Usuário">
+            
+            <h3>Sobre mim</h3>
+            <label for="edit-profession">Profissão:</label>
+            <input type="text" class="form-control" id="edit-profession"  value="Desenvolvedor de Software">
+            
+            <label for="edit-location">Mora em:</label>
+            <input type="text" class="form-control" id="edit-location" value="São Paulo, Brasil">
+            <label for="edit-relationship-status">Status de relacionamento:</label>
+            <select id="edit-relationship-status" class="form-control" >
+                <option value="solteiro">Solteiro</option>
+                <option value="casado">Casado</option>
+                <option value="namorando">Namorando</option>
+                <option value="divorciado">Divorciado</option>
+                <option value="enrolado">Enrolado</option>
+            </select>
+            <label for="edit-birthday">Aniversário:</label>
+            <input type="date" id="edit-birthday" class="form-control" value="1990-01-01">
+        
+            
+            <label for="edit-bio">Biografia:</label>
+            <textarea id="edit-bio" class="form-control">Esta é a minha biografia. Algo interessante sobre mim.</textarea>
+         
+            <button id="save-profile-button" class="btn btn-success">Salvar</button>
+       
+        </div>
+    </div>
+
+</div>
+
+    <script> 
+        $(document).ready(function () { 
+            setTimeout(function () { 
+  
+                // Duração do Fade In: 1 Segundo
+                $(".content").fadeIn(1000); 
+                $(".loading-overlay").fadeOut(2000); 
+                  
+                // Duração do Fade Out: 1 Segundo
+                // Mostrando a tela de carregamento durante 1 Segundo 
+            }, 1000); 
+        }); 
+    </script> 
+</body>
+</html>
